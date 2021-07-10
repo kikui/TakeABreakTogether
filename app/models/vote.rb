@@ -1,4 +1,4 @@
 class Vote < ApplicationRecord
-  belongs_to :Proposal
+  belongs_to :proposal
   belongs_to :user
 end
