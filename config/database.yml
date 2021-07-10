@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: web_development
+  database: take_a_break_together_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
