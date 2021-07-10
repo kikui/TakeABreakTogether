@@ -1,0 +1,23 @@
+<h1>Signup</h1>
+<%= form_tag users_path do |form| %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </div>
+  <div class="field">
+    <%= label_tag :pseudo %>
+    <%= text_field_tag :pseudo %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+  <div class="field">
+    <%= label_tag :confirm_password %>
+    <%= password_field_tag :confirm_password %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Sign up" %>
+  </div>
+<% end %>
+<%= link_to "Login", login_url %>
