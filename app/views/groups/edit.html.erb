@@ -26,7 +26,11 @@
         <tr class="table-align-item">
           <th><%= user_group.user.pseudo %></th>
           <th><%= user_group.user.email %></th>
-          <th><%= link_to t('groups.table.delete'), { controller: "user_groups", action: :destroy, user_group_id: user_group.id, group_id: @group.id },  method: :delete, class: "button", style: "color: red;" %></th>
+          <th>
+            <% if user_group.user_id != @group.user_id %>
+              <%= link_to t('groups.table.delete'), { controller: "user_groups", action: :destroy, user_group_id: user_group.id, group_id: @group.id },  method: :delete, class: "button", style: "color: red;" %>
+            <% end %>
+          </th>
         </tr>
       <% end %>
       <%= form_tag url_for(:controller => 'user_groups', :action => 'create'), method: :post do |form| %>

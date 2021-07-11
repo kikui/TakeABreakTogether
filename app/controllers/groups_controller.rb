@@ -3,11 +3,12 @@ class GroupsController < ApplicationController
 
   def index 
     @my_groups = current_user.groups
-    @other_groups = current_user.user_groups
+    @other_groups = current_user.user_groups_whithout_my_groups
   end
 
   def create 
     group = Group.create(user: current_user, name: params[:name])
+    UserGroup.create(user: current_user, group: group)
     redirect_to edit_group_url(id: group.id)
   end
 

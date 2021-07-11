@@ -1,1 +1,22 @@
-<p>hehe</p>
+<div class="survey-container">
+  <a href="surveys/new">
+    <div class="card">
+      <div class="card-content">
+        <div class="content content-add">
+          <div class="add-survey"><%= t("surveys.add_survey") %></div>
+        </div>
+      </div>
+    </div>
+  </a>
+  <% @surveys.each do |survey| %>
+    <a href="surveys/<%= survey.id %>">
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            <%= render "shared/survey_card_content", survey: survey %>
+          </div>
+        </div>
+      </div>
+    </a>
+  <% end %>
+</div>

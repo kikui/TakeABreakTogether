@@ -1,0 +1,24 @@
+<%= form_tag url_for(:controller => 'surveys', :action => is_create ? 'create' : 'update'), :method => is_create ? :post : :put do |form| %>
+  <div class="field">
+    <%= label_tag :date, t("surveys.date_label"), class: "label" %>
+    <%= date_field_tag :date, is_create ? Date.today : survey.date, class: "input" %>
+  </div>
+  <div class="field">
+    <%= label_tag :day_type, t("surveys.day_type_label"), class: "label" %>
+    <% Survey.day_type_enums.each do |day_type| %>
+      <label class="radio">
+        <%= radio_button_tag :day_type, day_type[0], is_create ? nil : survey.day_type == day_type[0], class: "radio" %>
+        <%= t("surveys.day_type_" + day_type[0]) %>
+      </label>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= label_tag :group_id, t("surveys.group_label"), class: "label" %>
+    <div class="select">
+      <%= select_tag :group_id, options_from_collection_for_select(@groups, 'id', 'name', is_create ? nil : survey.group_id.to_s), include_blank: true %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= submit_tag t(is_create ? 'surveys.submit' : 'surveys.submit_update'), class: "button" %>
+  </div>
+<% end %>

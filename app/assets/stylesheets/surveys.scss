@@ -1,0 +1,42 @@
+@import "../stylesheets/variable.scss";
+
+.survey-container {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .card {
+    border-radius: 10px;
+    .card-content {
+      padding: 5px !important;
+      .content {
+        height: 70px !important;
+        width: 100% !important;
+      }
+      .content-add {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .add-survey {
+          margin: auto;
+          color: $primary;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+.surveys-new {
+  .field {
+    width: 190px;
+    select {
+      width: 190px;
+    }
+  }
+}
