@@ -1,2 +1,15 @@
 en:
   hello: "Hello world"
+  menu:
+    old_survey: 'Historical'
+    current_survey: "Current survey"
+    group: "Groups"
+    profil: "Profil"
+  profil:
+    submit: 'Update'
+    current_password: "Current password"
+    password: "New password"
+    confirm_password: "Confirm password"
+    updated_ok: "Update success"
+    updated_current_password_ko: "Current password wrong"
+    updated_password_ko: "Confirm password wrong"

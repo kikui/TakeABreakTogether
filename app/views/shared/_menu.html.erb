@@ -1,1 +1,15 @@
-<p>menu</p>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand"><div class="navbar-item has-text-weight-bold is-size-5">TakeABreakTogether</div></div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <%= link_to t('menu.old_survey'), histories_url, class: "navbar-item #{params[:controller] == 'histories' ? 'is-active has-text-weight-bold': ''}" %>
+      <%= link_to t('menu.current_survey'), surveys_url, class: "navbar-item #{params[:controller] == 'surveys' ? 'is-active has-text-weight-bold': ''}" %>
+    </div>
+    <div class="navbar-end">
+      <%= link_to t('menu.group'), groups_url, class: "navbar-item #{params[:controller] == 'groups' ? 'is-active has-text-weight-bold': ''}" %>
+      <%= link_to t('menu.profil'), user_url(id: session[:user_id]), class: "navbar-item #{params[:controller] == 'users' ? 'is-active has-text-weight-bold': ''}" %>
+      <%= link_to t('menu.logout'), { controller: "sessions", action: :destroy, id: session[:user_id] },  method: :delete, class: "navbar-item" %>
+    </div>
+  </div>
+</nav>

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  add_flash_types :error, :another_custom_type
   around_action :switch_locale
   before_action :check_authenticate
 
@@ -40,6 +41,10 @@ class ApplicationController < ActionController::Base
 
   def check_authenticate
     redirect_to login_url if session[:user_id].nil?
+  end
+
+  def check_user_owner
+    redirect_to user_url(id: session[:user_id]) if session[:user_id].to_s != params[:id]
   end
 
 end

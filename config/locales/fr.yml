@@ -1,2 +1,15 @@
 fr:
   hello: "Bonjour le monde"
+  menu:
+    old_survey: 'Historique'
+    current_survey: "Sondage en cours"
+    group: "Groupes"
+    profil: "Profile"
+  profil:
+    submit: 'Mettre à jour'
+    current_password: "Mot de passe actuel"
+    password: "Nouveau mot de passe"
+    confirm_password: "Confirmer le mot de passe"
+    updated_ok: "Mise à jour réussi"
+    updated_current_password_ko: "Mot de passe actuel faux"
+    updated_password_ko: "Confirmation du mot de passe faux"
