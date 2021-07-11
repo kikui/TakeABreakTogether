@@ -1,0 +1,42 @@
+<div class="box edit">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <p class="error"><%= error %></p>
+  <div class="is-size-4 has-text-primary group-edit-title"><%= t("groups.edit_title") %></div>
+  <%= form_tag url_for(:controller => 'groups', :action => 'update'), method: :put do |form| %>
+    <div class="field">
+      <%= label_tag :name, t("groups.name_label"), class: "label" %>
+      <%= text_field_tag :name, @group.name, class: "input" %>
+    </div>
+    <div class="actions">
+      <%= submit_tag t('groups.submit_update'), class: "button" %>
+    </div>
+  <% end %>
+  <div style="margin-top: 30px;" class="is-size-4 has-text-primary group-edit-title"><%= t("groups.edit_membre_title") %></div>
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th><%= t("groups.table.name") %></th>
+        <th><%= t("groups.table.email") %></th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @group.user_groups.each do |user_group|%>
+        <tr class="table-align-item">
+          <th><%= user_group.user.pseudo %></th>
+          <th><%= user_group.user.email %></th>
+          <th><%= link_to t('groups.table.delete'), { controller: "user_groups", action: :destroy, user_group_id: user_group.id, group_id: @group.id },  method: :delete, class: "button", style: "color: red;" %></th>
+        </tr>
+      <% end %>
+      <%= form_tag url_for(:controller => 'user_groups', :action => 'create'), method: :post do |form| %>
+        <tr class="table-align-item">
+          <%= hidden_field_tag :group_id, @group.id %>
+          <th> - </th>
+          <th><%= text_field_tag :email, nil, class: "input" %></th>
+          <th><%= submit_tag t('groups.submit_user_group'), class: "button" %></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

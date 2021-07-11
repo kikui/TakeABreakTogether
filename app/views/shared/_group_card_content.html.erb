@@ -1,0 +1,22 @@
+<div class="has-text-primary has-text-centered has-text-weight-bold is-size-4"><%= group.name %></div>
+<div class="has-text-centered has-text-weight-bold group-subtitle"><%= t("groups.list_user") %> (<%= group.user_groups.length + 1 %>) : </div>
+<table class="table is-fullwidth table-group-index">
+  <thead>
+    <tr>
+      <th><%= t("groups.table.name") %></th>
+      <th><%= t("groups.table.email") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-align-item">
+      <th><span><%= group.user.pseudo %></span></th>
+      <th><span><%= group.user.email %></span></th>
+    </tr>
+    <% group.user_groups.each do |user_group|%>
+      <tr class="table-align-item">
+        <th><span><%= user_group.user.pseudo %></span></th>
+        <th><span><%= user_group.user.email %></span></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -4,4 +4,11 @@ class Group < ApplicationRecord
   belongs_to :user
 
   validates :name, presence: true
+
+  def check_user_already_present(user)
+    self.user_groups.each do |ug|
+      return true if ug.user == user
+    end
+    return false
+  end
 end

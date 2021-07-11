@@ -47,4 +47,9 @@ class ApplicationController < ActionController::Base
     redirect_to user_url(id: session[:user_id]) if session[:user_id].to_s != params[:id]
   end
 
+  def check_group_owner 
+    @group = Group.find(params.has_key?(:id) ? params[:id] : params[:group_id])
+    redirect_to({action: "index"}, error: t('groups.not_own_group')) && return if @group.user_id != session[:user_id]
+  end
+  
 end

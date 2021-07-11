@@ -1,0 +1,14 @@
+<div class="box edit">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <p class="error"><%= error %></p>
+  <%= form_tag url_for(:controller => 'groups', :action => 'create'), method: :post do |form| %>
+    <div class="field">
+      <%= label_tag :name, t("groups.name_label"), class: "label" %>
+      <%= text_field_tag :name, nil, class: "input" %>
+    </div>
+    <div class="actions">
+      <%= submit_tag t('groups.submit'), class: "button" %>
+    </div>
+  <% end %>
+</div>

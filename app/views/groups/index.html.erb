@@ -1,0 +1,40 @@
+<div class="groups-container">
+  <p class="error"><%= error %></p>
+  
+  <div class="group-title has-text-primary"><%= t("groups.my_groups") %></div>
+  <div class="d-flex">
+    <% @my_groups.each do |group|%>
+      <a href="groups/<%= group.id %>/edit">
+        <div class="card">
+          <div class="card-content">
+            <div class="content">
+              <%= render "shared/group_card_content", group: group %>
+            </div>
+          </div>
+        </div>
+      </a>
+    <% end %>
+    <a href="/groups/new">
+      <div class="card">
+        <div class="card-content">
+          <div class="content content-add">
+            <div class="add-group">+</div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="group-title has-text-primary"><%= t("groups.other_groups") %></div>
+  <div class="d-flex">
+    <% @other_groups.each do |user_group|%>
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            <%= render "shared/group_card_content", group: user_group.group %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<div>
