@@ -8,16 +8,15 @@ class UsersController < ApplicationController
   end 
 
   def create 
-    check_confirm_password
     if(check_confirm_password)
-      redirect_to signup_url, notice: "Confirm password error" and return
+      redirect_to signup_url, error: "Confirm password error" and return
     end
     if(check_existing_user)
-      redirect_to login_url, notice: "user already exist" and return
+      redirect_to login_url, error: "user already exist" and return
     end
     user = User.create(params_create_user)
     session[:user_id] = user.id
-    render surveys_url
+    redirect_to surveys_url
   end
 
   def update 

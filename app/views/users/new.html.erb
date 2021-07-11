@@ -1,25 +1,28 @@
-<h1>Signup</h1>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= form_tag users_path do |form| %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-  </div>
-  <div class="field">
-    <%= label_tag :pseudo %>
-    <%= text_field_tag :pseudo %>
-  </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="field">
-    <%= label_tag :confirm_password %>
-    <%= password_field_tag :confirm_password %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Sign up" %>
-  </div>
-<% end %>
-<%= link_to "Login", login_url %>
+<div class="box edit">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <p class="error"><%= error %></p>
+  <%= form_tag users_path do |form| %>
+    <div class="login-title">Signup</div>
+    <div class="field">
+      <%= label_tag :email, nil, class: "label" %>
+      <%= text_field_tag :email, nil, class: "input" %>
+    </div>
+    <div class="field">
+      <%= label_tag :pseudo, nil, class: "label" %>
+      <%= text_field_tag :pseudo, nil, class: "input" %>
+    </div>
+    <div class="field">
+      <%= label_tag :password, nil, class: "label" %>
+      <%= password_field_tag :password, nil, class: "input" %>
+    </div>
+    <div class="field">
+      <%= label_tag :confirm_password, nil, class: "label" %>
+      <%= password_field_tag :confirm_password, nil, class: "input" %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Sign up", class: "button" %>
+    </div>
+    <%= link_to "Login", login_url, class: "login-redirect" %>
+  <% end %>
+</div>

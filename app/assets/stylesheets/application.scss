@@ -54,7 +54,28 @@ $turquoise: hsl(236, 68%, 37%);
   margin-top: 1rem;
 }
 
+// global
 body {
   background-color: #fafafa;
   min-height: 100vh;
+}
+.login-title {
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  color: $primary;
+}
+.login-redirect {
+  width: 191px;
+  padding-top: 5px; 
+  margin-top: 10px; 
+  border-top: 1px solid #dbdbdb;
+  text-align: center;
+}
+.card {
+  .card-content {
+    .content {
+      overflow: hidden;
+    }
+  }
 }

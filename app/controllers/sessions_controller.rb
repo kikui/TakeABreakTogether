@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to surveys_url
     else
-      flash.now[:alert] = "Email or password is invalid"
+      flash.now[:error] = "Email or password is invalid"
       render "new"
     end
   end
