@@ -51,5 +51,10 @@ class ApplicationController < ActionController::Base
     @group = Group.find(params.has_key?(:id) ? params[:id] : params[:group_id])
     redirect_to({action: "index"}, error: t('groups.not_own_group')) && return if @group.user_id != session[:user_id]
   end
+
+  def check_survey_owner 
+    @survey = Survey.find(params[:id])
+    redirect_to({action: "index", controller: "surveys"}, error: t('sruveys.not_own_survey')) && return if @survey.user_id != session[:user_id]
+  end
   
 end

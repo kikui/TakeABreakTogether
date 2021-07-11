@@ -1,6 +1,7 @@
 class SurveysController < ApplicationController
   before_action :check_survey_exist, only: [:create, :update]
   before_action :check_survey_valid_datetime, only: [:create, :update]
+  before_action :check_survey_owner, only: [:edit, :update]
 
   def index 
     @surveys = current_user.user_surveys.sort_by{|s| s[:date].to_datetime.change({ hour: s.day_type == Survey.day_type_enums[:noon] ? 14 : 21, min: 0, sec: 0 }).in_time_zone}
@@ -16,14 +17,16 @@ class SurveysController < ApplicationController
   end
 
   def edit 
-    @survey = Survey.find(params[:id])
     @groups = available_groups
   end
 
   def update 
-    survey = Survey.find(params[:id])
     survey.update(group_id: params[:group_id], date: params[:date], day_type: params[:day_type])
     redirect_to({action: "edit", id: survey.id}, notice: t('surveys.update_success'))
+  end
+
+  def show 
+
   end
 
   private 
