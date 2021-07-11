@@ -8,7 +8,7 @@
         <div class="card">
           <div class="card-content">
             <div class="content">
-              <%= render "shared/group_card_content", group: group %>
+              <%= render "shared/group_card_content", group: group, deletable: false %>
             </div>
           </div>
         </div>
@@ -31,7 +31,7 @@
       <div class="card">
         <div class="card-content">
           <div class="content">
-            <%= render "shared/group_card_content", group: user_group.group %>
+            <%= render "shared/group_card_content", group: user_group.group, deletable: true %>
           </div>
         </div>
       </div>

@@ -12,3 +12,8 @@
     <% end %>
   </tbody>
 </table>
+<% if deletable %>
+  <div class="d-flex" style="justify-content: center;">
+    <%= link_to t('groups.leave_group'), user_group_url(id: group.user_group(session[:user_id]).id, return_to: "groups#index"), method: :delete, class: "button", style: "color: white; background-color: red" %>
+  </div>
+<% end %>

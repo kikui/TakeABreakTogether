@@ -30,3 +30,4 @@ en:
     submit_user_group: "Add"
     add_user_group_already_add: "User already add"
     add_user_group_owner: "Can't add yourself"
+    leave_group: "Leave the group"

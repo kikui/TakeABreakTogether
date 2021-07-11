@@ -1,5 +1,5 @@
 class UserGroupsController < ApplicationController
-  before_action :check_group_owner, only: [:create, :destroy]
+  before_action :check_group_owner, only: [:create]
   before_action :check_exist_user, only: [:create]
   before_action :check_user_already_present, only: [:create]
 
@@ -9,8 +9,9 @@ class UserGroupsController < ApplicationController
   end
 
   def destroy 
-    UserGroup.find(params[:user_group_id]).destroy
-    redirect_to({controller: "groups", action: "edit", id: params[:group_id]}, notice: t('groups.delete_user_group'))
+    UserGroup.find(params.has_key?(:user_group_id) ? params[:user_group_id] : params[:id]).destroy
+    redirect_to({controller: "groups", action: "edit", id: params[:group_id]}, notice: t('groups.delete_user_group')) if !params.has_key?(:return_to)
+    redirect_to({controller: params[:return_to].split('#')[0], action: params[:return_to].split('#')[1]}, notice: t('groups.delete_user_group')) if params.has_key?(:return_to)
   end
 
   private 

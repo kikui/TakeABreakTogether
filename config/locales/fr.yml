@@ -30,3 +30,4 @@ fr:
     submit_user_group: "Ajouter"
     add_user_group_already_add: "Utilisateur déjà ajouté"
     add_user_group_owner: "Vous ne pouvez pas vous ajouer"
+    leave_group: "Quitter le groupe"

@@ -2,14 +2,7 @@
 *= require_tree .
 *= require_self
 */
-@charset "utf-8";
-
-// bulma variable
-$navbar-background-color: hsl(0, 0%, 86%);
-$navbar-item-active-color: hsl(236, 68%, 37%);
-$card-radius: 1.25rem;
-$turquoise: hsl(236, 68%, 37%);
-@import "../../../node_modules/bulma/bulma.sass";
+@import "../stylesheets/variable.scss";
 
 // form
 .edit {

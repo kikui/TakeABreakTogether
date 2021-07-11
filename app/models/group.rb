@@ -11,4 +11,9 @@ class Group < ApplicationRecord
     end
     return false
   end
+
+  def user_group(user_id) 
+    self.user_groups.select{ |ug| ug.user_id == user_id }.first
+  end
+
 end
