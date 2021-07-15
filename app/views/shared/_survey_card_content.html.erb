@@ -1,0 +1,12 @@
+<div class="container-card-survey">
+  <div class="date">  
+    <div class="pill <%= survey.has_vote(session[:user_id]) ? 'greed' : 'red' %>"></div>
+    <div class="item"><%= survey.date.strftime("%d/%m/%Y") %></div>
+    <div class="item"><%= survey.day_type == Survey.day_type_enums[:noon] ? t('surveys.day_type_noon') : t('surveys.day_type_evening') %></div>
+  </div>
+  <div class="item"><%= survey.group.name %></div>
+  <div class="proposal-win">
+    <p><%= t('surveys.proposal_win') %></p>
+    <p><%= survey.proposal_win[:name] %></p>
+  </div>
+</div>

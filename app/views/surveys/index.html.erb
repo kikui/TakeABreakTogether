@@ -9,14 +9,21 @@
     </div>
   </a>
   <% @surveys.each do |survey| %>
-    <a href="surveys/<%= survey.id %>">
-      <div class="card">
-        <div class="card-content">
-          <div class="content">
+    <div class="card">
+      <div class="card-content">
+        <div class="content">
+          <a href="surveys/<%= survey.id %>" class="data">
             <%= render "shared/survey_card_content", survey: survey %>
-          </div>
+          </a>
+          <% if survey.user_id == session[:user_id]%>
+            <a href="surveys/<%= survey.id %>/edit" class="edit">
+              <div class="button"><%= t('surveys.edit_survey') %></div>
+            </a>
+          <% else %>
+            <div class="edit"></div>
+          <% end %>
         </div>
       </div>
-    </a>
+    </div>
   <% end %>
 </div>

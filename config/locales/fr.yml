@@ -44,3 +44,5 @@ fr:
     submit_update: "Mettre à jour le sondage"
     create_success: "Création du sondage réussi"
     update_success: "Mise à jour du sondage réussi"
+    edit_survey: "Modifier"
+    proposal_win: "Proposition en tête :"

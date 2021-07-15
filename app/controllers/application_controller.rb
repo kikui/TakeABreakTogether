@@ -56,5 +56,10 @@ class ApplicationController < ActionController::Base
     @survey = Survey.find(params[:id])
     redirect_to({action: "index", controller: "surveys"}, error: t('sruveys.not_own_survey')) && return if @survey.user_id != session[:user_id]
   end
+
+  def check_survey_member 
+    @survey = Survey.find(params[:id])
+    redirect_to({action: "index", controller: "surveys"}, error: t('sruveys.not_member_survey')) && return if !@survey.group.is_group_member(session[:user_id])
+  end
   
 end
