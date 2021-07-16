@@ -1,16 +1,33 @@
 <table class="table is-fullwidth">
-    <thead>
-      <tr>
-        <% survey.group.user_groups.each do |ug|%>
-          <%= ug.user.pseudo %>
+  <thead>
+    <tr>
+      <th></th>
+      <% survey.group.user_groups.each do |ug| %>
+        <th><%= ug.user.pseudo %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% survey.proposals.each do |p| %>
+      <tr class="table-align-item">
+        <td><%= p.name %></td>
+        <% survey.group.user_groups.each do |ug| %>
+          <% if survey.has_vote(ug.user_id) %>
+            <td>
+              <label class="checkbox">
+                <input type="checkbox" checked>
+                <%= check_box_tag "#{p.id}_#{ug.user_id}", nil, true, disabled: ug.user_id != session[:user_id], class: "delete_vote" %>
+              </label>
+            </td>
+          <% else %>
+            <td>
+              <label class="checkbox">
+                <%= check_box_tag "#{p.id}_#{ug.user_id}", nil, false, disabled: ug.user_id != session[:user_id], class: "add_vote" %>
+              </label>
+            </td>
+          <% end %>
         <% end %>
       </tr>
-    </thead>
-    <tbody>
-      <% survey.proposals.each do |p| %>
-        <tr class="table-align-item">
-          
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>
