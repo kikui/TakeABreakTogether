@@ -61,5 +61,15 @@ class ApplicationController < ActionController::Base
     @survey = Survey.find(params[:id])
     redirect_to({action: "index", controller: "surveys"}, error: t('sruveys.not_member_survey')) && return if !@survey.group.is_group_member(session[:user_id])
   end
+
+  def check_vote_owner
+    redirect_to({action: "show", controller: "surveys", id: params[:survey_id]}, error: t('surveys.not_vote_owner')) && return if params[:user_id] != session[:user_id].to_s
+  end
+
+  def check_too_late_to_vote
+    survey = Survey.find(params[:survey_id])
+    is_to_late = DateTime.now.in_time_zone > survey.date.to_datetime.change({hour: survey.day_type == Survey.day_type_enums[:noon] ? 12 : 19, min: 0, sec: 0}).in_time_zone
+    redirect_to({action: "show", controller: "surveys", id: params[:survey_id]}, error: t('surveys.too_late_to_vote')) && return if is_to_late
+  end
   
 end

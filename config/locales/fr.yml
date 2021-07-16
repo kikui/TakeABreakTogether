@@ -56,3 +56,7 @@ fr:
     update_proposal: "Modification de la proposition réussis"
     table_proposal_name: "Nom du restaurant"
     table_proposal_address: "Adresse du restaurant"
+    not_vote_owner: "Vous ne pouvez pas modifier le vote d'un autre membre"
+    add_vote: "Vote bien enregistré"
+    delete_vote: "Vote bien supprimé"
+    too_late_to_vote: "Les votes sont fermé"

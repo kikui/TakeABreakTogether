@@ -68,7 +68,7 @@ a .container-card-survey {
     height: 7px;
     border-radius: 50%;
     margin: 0 10px;
-    &.geen {
+    &.green {
       background-color: green;
     }
     &.red {
@@ -123,5 +123,10 @@ a .container-card-survey {
     font-size: 22px;
     font-weight: bold;
     text-align: center;
+  }
+  .table-vote {
+    th, td {
+      text-align: center !important;
+    }
   }
 }

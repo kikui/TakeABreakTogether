@@ -6,9 +6,11 @@ class Proposal < ApplicationRecord
   validates :address, presence: true
 
   def find_vote(user_id)
+    selected_vote = nil
     self.votes.each do |vote|
-      return vote if vote.user_id == user_id
+      selected_vote = vote if vote.user_id == user_id
     end
+    selected_vote
   end
 
 end

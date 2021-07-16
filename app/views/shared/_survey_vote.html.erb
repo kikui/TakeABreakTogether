@@ -1,29 +1,39 @@
-<table class="table is-fullwidth">
+<table class="table is-fullwidth table-vote">
   <thead>
     <tr>
       <th></th>
-      <% survey.group.user_groups.each do |ug| %>
-        <th><%= ug.user.pseudo %></th>
+      <% survey.proposals.each do |p| %>
+        <th><%= p.name %></th>
       <% end %>
     </tr>
   </thead>
   <tbody>
-    <% survey.proposals.each do |p| %>
+    <% survey.group.user_groups.each do |ug| %>
       <tr class="table-align-item">
-        <td><%= p.name %></td>
-        <% survey.group.user_groups.each do |ug| %>
-          <% if survey.has_vote(ug.user_id) %>
+        <td><%= ug.user.pseudo %></td>
+        <% survey.proposals.each do |p| %>
+          <% if p.find_vote(ug.user_id) %>
             <td>
-              <label class="checkbox">
-                <input type="checkbox" checked>
-                <%= check_box_tag "#{p.id}_#{ug.user_id}", nil, true, disabled: ug.user_id != session[:user_id], class: "delete_vote" %>
-              </label>
+              <%= form_tag url_for(:controller => 'votes', :action => 'destroy', id: p.find_vote(ug.user_id).id), method: :delete do |form| %>
+                <label class="checkbox">
+                  <%= check_box_tag "#{p.id}_#{ug.user_id}_checkbox", nil, true, disabled: ug.user_id != session[:user_id], class: "trigger_vote", user_id: ug.user_id, proposal_id: p.id %>
+                </label>
+                <%= hidden_field_tag :user_id, ug.user_id %>
+                <%= hidden_field_tag :survey_id, survey.id %>
+                <%= submit_tag "", id: "#{p.id}_#{ug.user_id}_submit", :style => "display: none;" %>
+              <% end %>
             </td>
           <% else %>
             <td>
-              <label class="checkbox">
-                <%= check_box_tag "#{p.id}_#{ug.user_id}", nil, false, disabled: ug.user_id != session[:user_id], class: "add_vote" %>
-              </label>
+              <%= form_tag url_for(:controller => 'votes', :action => 'create'), method: :post do |form| %>
+                <label class="checkbox">
+                  <%= check_box_tag "#{p.id}_#{ug.user_id}_checkbox", nil, false, disabled: ug.user_id != session[:user_id], class: "trigger_vote", user_id: ug.user_id, proposal_id: p.id %>
+                </label>
+                <%= hidden_field_tag :proposal_id, p.id %>
+                <%= hidden_field_tag :user_id, ug.user_id %>
+                <%= hidden_field_tag :survey_id, survey.id %>
+                <%= submit_tag "", id: "#{p.id}_#{ug.user_id}_submit", :style => "display: none;" %>
+              <% end %>
             </td>
           <% end %>
         <% end %>
@@ -31,3 +41,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= javascript_pack_tag 'survey_add_delete_vote' %>
