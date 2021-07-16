@@ -3,7 +3,6 @@ class Proposal < ApplicationRecord
   has_many :votes
 
   validates :name, presence: true
-  validates :address, presence: true
 
   def find_vote(user_id)
     selected_vote = nil

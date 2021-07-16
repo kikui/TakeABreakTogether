@@ -5,7 +5,7 @@ class SurveysController < ApplicationController
   before_action :check_survey_member, only: [:show]
 
   def index 
-    @surveys = current_user.user_surveys.sort_by{|s| s[:date].to_datetime.change({ hour: s.day_type == Survey.day_type_enums[:noon] ? 14 : 21, min: 0, sec: 0 }).in_time_zone}
+    @surveys = current_user.user_surveys.sort_by{|s| s[:date].to_datetime.change({ hour: s.day_type == Survey.day_type_enums[:noon] ? 14 : 21, min: 0, sec: 0 }).in_time_zone}.reverse
   end
 
   def new 
@@ -14,7 +14,7 @@ class SurveysController < ApplicationController
 
   def create 
     survey = Survey.create(user: current_user, group_id: params[:group_id], date: params[:date], day_type: params[:day_type])
-    redirect_to({action: "edit", id: survey.id}, notice: t('surveys.create_success'))
+    redirect_to({action: "show", id: survey.id}, notice: t('surveys.create_success'))
   end
 
   def edit 

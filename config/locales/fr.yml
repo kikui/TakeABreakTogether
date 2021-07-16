@@ -54,6 +54,7 @@ fr:
     survey_question: "Où est ce qu'on va manger ?"
     add_proposal: "Ajout d'une proposition réussis"
     update_proposal: "Modification de la proposition réussis"
+    proposal_miss_name: "Veuillez ajouter au moins le nom du restaurant"
     table_proposal_name: "Nom du restaurant"
     table_proposal_address: "Adresse du restaurant"
     not_vote_owner: "Vous ne pouvez pas modifier le vote d'un autre membre"

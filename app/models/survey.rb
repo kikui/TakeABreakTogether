@@ -21,9 +21,9 @@ class Survey < ApplicationRecord
   def proposal_win 
     selected_proposal = nil
     self.proposals.each do |p|
-      selectd_proposal = p if selected_proposal.nil? || p.votes.count > selected_proposal.votes.count
+      selected_proposal = p if selected_proposal.nil? || p.votes.count > selected_proposal.votes.count
     end
-    selected_proposal.nil? ? {name: "-"} : selected_proposal
+    selected_proposal.nil? ? "-" : selected_proposal.name
   end
 
 end

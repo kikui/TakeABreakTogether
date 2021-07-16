@@ -2,8 +2,12 @@ class ProposalsController < ApplicationController
   before_action :check_survey_member, only: [:create, :update]
    
   def create 
-    Proposal.create(name: params[:name], address: params[:address], survey_id: params[:id])
-    redirect_to({controller: "surveys", action: "show", id: params[:id]}, notice: t('surveys.add_proposal'))
+    proposal = Proposal.create(name: params[:name], address: params[:address], survey_id: params[:id])
+    if(proposal.save)
+      redirect_to({controller: "surveys", action: "show", id: params[:id]}, notice: t('surveys.add_proposal'))
+    else
+      redirect_to({controller: "surveys", action: "show", id: params[:id]}, error: t('surveys.proposal_miss_name'))
+    end
   end
 
   def update 
