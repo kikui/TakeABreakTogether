@@ -1,5 +1,8 @@
 fr:
   hello: "Bonjour le monde"
+  global:
+    add: "Ajouter"
+    edit: "Modifier"
   menu:
     old_survey: 'Historique'
     current_survey: "Sondage en cours"
@@ -46,3 +49,10 @@ fr:
     update_success: "Mise à jour du sondage réussi"
     edit_survey: "Modifier"
     proposal_win: "Proposition en tête :"
+    proposal_list: "Liste des propositions :"
+    stat_title: "Statistiques :"
+    survey_question: "Où est ce qu'on va manger ?"
+    add_proposal: "Ajout d'une proposition réussis"
+    update_proposal: "Modification de la proposition réussis"
+    table_proposal_name: "Nom du restaurant"
+    table_proposal_address: "Adresse du restaurant"

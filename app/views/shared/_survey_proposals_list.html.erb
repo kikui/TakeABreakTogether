@@ -1,0 +1,30 @@
+<table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th><%= t("surveys.table_proposal_name") %></th>
+        <th><%= t("surveys.table_proposal_address") %></th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% proposals.each do |p|%>
+        <%= form_tag url_for(:controller => 'proposals', :action => 'update'), method: :put do |form| %>
+          <tr class="table-align-item">
+            <%= hidden_field_tag :id, @survey.id %>
+            <%= hidden_field_tag :proposal_id, p.id %>
+            <th><%= text_field_tag :name, p.name, class: "input" %></th>
+            <th><%= text_field_tag :address, p.address, class: "input" %></th>
+            <th><%= submit_tag t('global.edit'), class: "button" %></th>
+          </tr>
+        <% end %>
+      <% end %>
+      <%= form_tag url_for(:controller => 'proposals', :action => 'create'), method: :post do |form| %>
+        <tr class="table-align-item">
+          <%= hidden_field_tag :id, @survey.id %>
+          <th><%= text_field_tag :name, nil, class: "input" %></th>
+          <th><%= text_field_tag :address, nil, class: "input" %></th>
+          <th><%= submit_tag t('global.add'), class: "button" %></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

@@ -1,0 +1,21 @@
+
+<p class="notice"><%= notice %></p>
+<p class="error"><%= error %></p>
+<div class="survey-show-container">
+  <div class="title"><%= @survey.date.strftime("%d/%m/%Y") %> <%= @survey.day_type == Survey.day_type_enums[:noon] ? t('surveys.day_type_noon') : t('surveys.day_type_evening') %></div>
+  <div class="group-title"><%= @survey.group.name %></div>
+  <div class="d-flex mt-4">
+    <div class="card proposal-section">
+      <p class="sub-title"><%= t("surveys.proposal_list") %></p>
+      <%= render "shared/survey_proposals_list", proposals: @survey.proposals %>
+    </div>
+    <div class="card stat-section">
+      <p class="sub-title"><%= t("surveys.stat_title") %></p>
+      <%= render "shared/survey_stat", survey: @survey %>
+    </div>
+    <div class="card vote-section">
+      <p class="sub-title"><%= t("surveys.survey_question") %></p>
+      <%= render "shared/survey_vote", survey: @survey %>
+    </div>
+  </div>
+</div>

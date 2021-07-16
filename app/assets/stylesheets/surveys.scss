@@ -95,3 +95,33 @@ a .container-card-survey {
     }
   }
 }
+
+.survey-show-container {
+  margin: 10px;
+  .card {
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: calc(50% - 5px);
+    &.vote-section {
+      width: 100%;
+    }
+    .sub-title {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+  }
+  .title {
+    text-decoration: underline;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .group-title {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+  }
+}
