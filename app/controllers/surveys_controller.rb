@@ -23,7 +23,7 @@ class SurveysController < ApplicationController
 
   def update 
     @survey.update(group_id: params[:group_id], date: params[:date], day_type: params[:day_type])
-    redirect_to({action: "edit", id: survey.id}, notice: t('surveys.update_success'))
+    redirect_to({action: "edit", id: @survey.id}, notice: t('surveys.update_success'))
   end
 
   def show 
