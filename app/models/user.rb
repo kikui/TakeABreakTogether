@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :pseudo, presence: true
 
   def user_groups_whithout_my_groups 
-    self.user_groups.where.not(user_id: self.id)
+    self.user_groups.left_joins(:group).where.not(groups: {user_id: self.id})
   end
 
   def user_surveys 
