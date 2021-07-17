@@ -11,6 +11,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'que', github: 'que-rb/que', branch: 'master'
+gem 'que-web', github: 'statianzo/que-web', branch: 'master'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

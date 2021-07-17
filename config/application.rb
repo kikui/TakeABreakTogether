@@ -18,5 +18,11 @@ module Web
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.active_job.queue_adapter = :que
+
+    config.action_mailer.deliver_later_queue_name = :default
+    config.active_storage.queues.analysis = :default
+    config.active_storage.queues.purge = :default
+    
   end
 end

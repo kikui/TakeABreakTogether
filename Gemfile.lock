@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/que-rb/que.git
+  revision: 61e1805deb8161e5c1502e518a9a44fa464d308c
+  branch: master
+  specs:
+    que (1.0.0.beta4)
+
+GIT
+  remote: https://github.com/statianzo/que-web.git
+  revision: d663559b46f0afa9215a1cb8a0e2418197b66342
+  branch: master
+  specs:
+    que-web (0.9.3)
+      que (~> 1.0.0.beta3)
+      sinatra
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -90,6 +106,8 @@ GEM
     mini_portile2 (2.5.3)
     minitest (5.14.4)
     msgpack (1.4.2)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
     nio4r (2.5.7)
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
@@ -105,6 +123,8 @@ GEM
     rack (2.2.3)
     rack-mini-profiler (2.3.2)
       rack (>= 1.2.0)
+    rack-protection (2.1.0)
+      rack
     rack-proxy (0.7.0)
       rack
     rack-test (1.1.0)
@@ -139,6 +159,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    ruby2_keywords (0.0.5)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -150,6 +171,11 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
+    sinatra (2.1.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.1.0)
+      tilt (~> 2.0)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -193,6 +219,8 @@ DEPENDENCIES
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
+  que!
+  que-web!
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4)
   sass-rails (>= 6)
