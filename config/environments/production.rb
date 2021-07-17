@@ -117,4 +117,15 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :Username => "postmaster@sandbox7a01d6d36a734c80aab4884c3ce2c6da.mailgun.org",
+    :password => "ea4e0790642351ae23130ff92efecd0c-e31dc3cc-520ba739",
+    :enable_starttls_auto => true
+  }
+
+  routes.default_url_options[:host] = 'https://takeabreaktogether.herokuapp.com/'
+
 end
