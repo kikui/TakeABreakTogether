@@ -1,13 +1,15 @@
 <div class="survey-container">
-  <a href="surveys/new">
-    <div class="card">
-      <div class="card-content">
-        <div class="content content-add">
-          <div class="add-survey"><%= t("surveys.add_survey") %></div>
+  <% if params[:controller] == 'surveys' %>
+    <a href="surveys/new">
+      <div class="card">
+        <div class="card-content">
+          <div class="content content-add">
+            <div class="add-survey"><%= t("surveys.add_survey") %></div>
+          </div>
         </div>
       </div>
-    </div>
-  </a>
+    </a>
+  <% end %>
   <% @surveys.each do |survey| %>
     <div class="card">
       <div class="card-content">

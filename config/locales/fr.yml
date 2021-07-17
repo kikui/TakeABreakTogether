@@ -34,6 +34,7 @@ fr:
     add_user_group_already_add: "Utilisateur déjà ajouté"
     add_user_group_owner: "Vous ne pouvez pas vous ajouer"
     leave_group: "Quitter le groupe"
+    leave_group_confirm: "Etes vous sûre de vouloir quitter le groupe ?"
   surveys:
     add_survey: "Créer un sondage"
     submit: "Créer le sondage"

@@ -31,6 +31,7 @@ en:
     add_user_group_already_add: "User already add"
     add_user_group_owner: "Can't add yourself"
     leave_group: "Leave the group"
+    leave_group_confirm: "Are you sure to leave the group ?"
   surveys:
     add_survey: "Create survey"
     submit: "Create survey"
