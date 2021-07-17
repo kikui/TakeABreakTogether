@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Que::Web => "/que"
+  
   resources :users, only: [:new, :create, :show, :update]
   resource :sessions, only: [:new, :create, :destroy]
   resources :groups, only: [:create, :edit, :update, :index, :new]
