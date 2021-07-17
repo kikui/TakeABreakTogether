@@ -11,6 +11,10 @@
     </div>
     <div class="card stat-section">
       <p class="sub-title"><%= t("surveys.stat_title") %></p>
+      <div class="stat-item" style="margin-bottom: 20px;">
+        <strong class="has-text-primary"><%= t("surveys.proposal_win") %></strong>
+        <strong class="has-text-primary"><%= @survey.proposal_win %></strong>
+      </div>
       <%= render "shared/survey_stat", survey: @survey %>
     </div>
     <div class="card vote-section">

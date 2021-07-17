@@ -61,3 +61,11 @@ fr:
     add_vote: "Vote bien enregistré"
     delete_vote: "Vote bien supprimé"
     too_late_to_vote: "Les votes sont fermé"
+    stat:
+      global: "Global :"
+      specific: "Spécifique :"
+      nb_proposals: "Nombre de proposition: "
+      nb_participant: "Nombre de participant: "
+      most_dificultless: "Le moins dificile: "
+      most_too_late: "Le plus tardif: "
+      no_vote: "Les absents: "

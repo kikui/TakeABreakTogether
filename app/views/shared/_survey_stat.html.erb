@@ -1,0 +1,30 @@
+<div class="container-stat">
+  <div class="stat-sub-container">
+    <strong><%= t("surveys.stat.global") %></strong>
+    <div class="stat-item">
+      <div><%= t("surveys.stat.nb_proposals") %></div>
+      <strong><%= survey.proposals.count %></strong>
+    </div>
+    <div class="stat-item">
+      <div><%= t("surveys.stat.nb_participant") %></div>
+      <strong><%= survey.group.user_groups.count %></strong>
+    </div>
+  </div>
+  <div class="stat-sub-container">
+    <strong><%= t("surveys.stat.specific") %></strong>
+    <div class="stat-item">
+      <div><%= t("surveys.stat.most_dificultless") %></div>
+      <strong><%= survey.most_dificultless %></strong>
+    </div>
+    <div class="stat-item">
+      <div><%= t("surveys.stat.most_too_late") %></div>
+      <strong><%= survey.most_too_late %></strong>
+    </div>
+  </div>
+  <div class="stat-sub-container">
+    <strong><%= t("surveys.stat.no_vote") %></strong>
+    <div>
+      <%= survey.user_no_vote.join(", ") %>
+    </div>
+  </div>
+</div>
