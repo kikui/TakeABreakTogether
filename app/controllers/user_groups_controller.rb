@@ -4,8 +4,12 @@ class UserGroupsController < ApplicationController
   before_action :check_user_already_present, only: [:create]
 
   def create 
-    UserGroup.create(user: @user, group_id: params[:group_id])
-    redirect_to({controller: "groups", action: "edit", id: params[:group_id]}, notice: t('groups.add_user_group'))
+    ActiveRecord::Base.transaction do
+      user_group = UserGroup.create(user: @user, group_id: params[:group_id])
+      UserGroupMailer.join_group(user_group).deliver_later
+      redirect_to({controller: "groups", action: "edit", id: params[:group_id]}, notice: t('groups.add_user_group')) && return
+    end
+    redirect_to({controller: "groups", action: "edit", id: params[:group_id]}, error: t('global.error_occured'))
   end
 
   def destroy 

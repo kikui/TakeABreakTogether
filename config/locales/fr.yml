@@ -3,6 +3,7 @@ fr:
   global:
     add: "Ajouter"
     edit: "Modifier"
+    error_occured: "Désolé une erreur est survenue"
   menu:
     old_survey: 'Historique'
     current_survey: "Sondage en cours"
@@ -35,6 +36,8 @@ fr:
     add_user_group_owner: "Vous ne pouvez pas vous ajouer"
     leave_group: "Quitter le groupe"
     leave_group_confirm: "Etes vous sûre de vouloir quitter le groupe ?"
+    join_group_mailer: "Vous avez été ajouté à un groupe"
+    join_group_mailer_content: "Vous etes maintenant membre du groupe: "
   surveys:
     add_survey: "Créer un sondage"
     submit: "Créer le sondage"
@@ -62,6 +65,8 @@ fr:
     add_vote: "Vote bien enregistré"
     delete_vote: "Vote bien supprimé"
     too_late_to_vote: "Les votes sont fermé"
+    new_survey: "Un sondage vous concernant a été ouvert"
+    new_survey_content: "Nouveau sondage pour le %{date} au %{day_type} pour le groupe: %{group_name}"
     stat:
       global: "Global :"
       specific: "Spécifique :"

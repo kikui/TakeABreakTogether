@@ -1,5 +1,9 @@
 en:
   hello: "Hello world"
+  global:
+    add: "Add"
+    edit: "Edit"
+    error_occured: "Sorry an error was occured"
   menu:
     old_survey: 'Historical'
     current_survey: "Current survey"
@@ -32,6 +36,8 @@ en:
     add_user_group_owner: "Can't add yourself"
     leave_group: "Leave the group"
     leave_group_confirm: "Are you sure to leave the group ?"
+    join_group_mailer: "You're new member of a group"
+    join_group_mailer_content: "You're now a group member of: "
   surveys:
     add_survey: "Create survey"
     submit: "Create survey"
@@ -59,6 +65,8 @@ en:
     add_vote: "Vote registred"
     delete_vote: "Vote deleted"
     too_late_to_vote: "Votes closed"
+    new_survey: "Survey for you was opened"
+    new_survey_content: "New survey for the %{date} at %{day_type} for group: %{group_name}"
     stat:
       global: "Global :"
       specific: "Spécific :"

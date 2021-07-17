@@ -14,7 +14,14 @@ class SurveysController < ApplicationController
 
   def create 
     survey = Survey.create(user: current_user, group_id: params[:group_id], date: params[:date], day_type: params[:day_type])
-    redirect_to({action: "show", id: survey.id}, notice: t('surveys.create_success'))
+    if(survey.save)
+      survey.group.user_groups.each do |ug| 
+        SurveyMailer.survey_created(survey, ug).deliver_later if ug.user_id != survey.user_id
+      end
+      redirect_to({action: "show", id: survey.id}, notice: t('surveys.create_success')) && return
+    else
+      redirect_to({action: "new"}, error: t('global.error_occured'))
+    end
   end
 
   def edit 
@@ -23,7 +30,7 @@ class SurveysController < ApplicationController
 
   def update 
     @survey.update(group_id: params[:group_id], date: params[:date], day_type: params[:day_type])
-    redirect_to({action: "edit", id: @survey.id}, notice: t('surveys.update_success'))
+    redirect_to({action: "show", id: @survey.id}, notice: t('surveys.update_success'))
   end
 
   def show 
