@@ -22,29 +22,21 @@ class UsersController < ApplicationController
   def update 
     user = User.find(session[:user_id])
     if(check_change_password)
-      update_user(user)
+      if(!user.authenticate(params[:current_password]))
+        redirect_to({action: "show", id: session[:user_id]}, error: t('profil.updated_current_password_ko')) && return
+      end
+      if(params[:password] != params[:confirm_password])
+        redirect_to({action: "show", id: session[:user_id]}, error: t('profil.updated_password_ko')) && return
+      end
+      user.update(email: params[:email], pseudo: params[:pseudo], password: params[:password])
       redirect_to({action: "show", id: session[:user_id]}, notice: t('profil.updated_ok')) && return
     else 
-      update_user_without_password(user)
+      user.update(email: params[:email], pseudo: params[:pseudo])
       redirect_to({action: "show", id: session[:user_id]}, notice: t('profil.updated_ok')) && return
     end
   end
 
   private 
-
-  def update_user_without_password(user)
-    user.update(email: params[:email], pseudo: params[:pseudo])
-  end
-
-  def update_user(user)
-    if(user.authenticate(params[:password]))
-      redirect_to({action: "show", id: session[:user_id]}, error: t('profil.updated_current_password_ko')) && return
-    end
-    if(params[:password] != params[:confirm_password])
-      redirect_to({action: "show", id: session[:user_id]}, error: t('profil.updated_password_ko')) && return
-    end
-    user.update(email: params[:email], pseudo: params[:pseudo], password: params[:password])
-  end
 
   def check_change_password 
     !params[:current_password].empty?
