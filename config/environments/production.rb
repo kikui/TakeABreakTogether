@@ -123,6 +123,7 @@ Rails.application.configure do
     :port => 587,
     :Username => "postmaster@sandbox7a01d6d36a734c80aab4884c3ce2c6da.mailgun.org",
     :password => "ea4e0790642351ae23130ff92efecd0c-e31dc3cc-520ba739",
+    :authentication => "heroku"
     :enable_starttls_auto => true
   }
 

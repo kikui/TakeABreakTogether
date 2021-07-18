@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_user_owner
-    redirect_to user_url(id: session[:user_id]) if session[:user_id].to_s != params[:id]
+    redirect_to user_url(id: session[:user_id]) && return if session[:user_id].to_s != params[:id] 
   end
 
   def check_group_owner 

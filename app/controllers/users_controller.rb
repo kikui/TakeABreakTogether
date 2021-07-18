@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       redirect_to({action: "show", id: session[:user_id]}, notice: t('profil.updated_ok')) && return
     else 
       update_user_without_password(user)
-      redirect_to({action: "show", id: session[:user_id]}, notice: t('profil.updated_ok'))
+      redirect_to({action: "show", id: session[:user_id]}, notice: t('profil.updated_ok')) && return
     end
   end
 
